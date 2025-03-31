@@ -9,31 +9,57 @@
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-ChatWazobia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-ChatWazobia.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1A06C4A3BFB7420BB986A207 /* LufgaBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A898711E0704420097B12787 /* LufgaBlack.ttf */; };
+		1A8E491AE8264492AED769F2 /* LufgaThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8064A978EA44599006E877 /* LufgaThinItalic.ttf */; };
+		21184FAEA8854F3F8C3067D2 /* LufgaExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00E55061496E444A87DB790B /* LufgaExtraBold.ttf */; };
+		29B03D46EE3245F3A17DEB1C /* LufgaSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E32E9222DE94B7EBD5E120D /* LufgaSemiBold.ttf */; };
+		2ED8E81E55EF4FA0B8A433F6 /* LufgaRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C442116D0D2C40AEBB3A9387 /* LufgaRegular.ttf */; };
+		38BEE1221A2DC8DE464FD900 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		64229D765B474A1493C86EEC /* LufgaLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25FEA488B3924FDE8A4413E3 /* LufgaLightItalic.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8DC5B1FD42164D168DFEB9F0 /* LufgaExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6210E100290E4F5EAD2EBB39 /* LufgaExtraBoldItalic.ttf */; };
+		946DCF73CEFF44AFAE0CA521 /* LufgaBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DDDDFA154A36AF5B7155 /* LufgaBoldItalic.ttf */; };
+		B0A619C0B6F14C9C9C017915 /* LufgaThin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D423FA77768247BCAA4638E5 /* LufgaThin.ttf */; };
+		B310953C8C7348559FE7F38C /* LufgaLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989D50D6683E4E41B839AAE7 /* LufgaLight.ttf */; };
+		B75AA935B08D4C67BE29C19D /* LufgaSemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32EFB0CADC7A40FF82AED60A /* LufgaSemiBoldItalic.ttf */; };
+		BD957380E8FB4DBDA9CD0FAD /* LufgaItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B9CA43374134B8707CB4 /* LufgaItalic.ttf */; };
+		C5897CFFDBBF4537B6EB37A1 /* LufgaExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B724F26DD2C34861A2CCA094 /* LufgaExtraLightItalic.ttf */; };
+		CD3FE6BD08574C80A8178A74 /* LufgaBlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97F1D48A49D4464C89B48182 /* LufgaBlackItalic.ttf */; };
+		DB9F9457C96A4FDFBF8B720C /* LufgaExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEF4F09451946AEBBDE2F3A /* LufgaExtraLight.ttf */; };
+		E6A7591F981746DC9D0B3AAF /* LufgaMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D14238A4AEC145C0A53C8642 /* LufgaMedium.ttf */; };
+		EC0F2585E9064D408EF385DF /* LufgaBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8C6D674DBB4500B9B90E91 /* LufgaBold.ttf */; };
+		F6958020AC1D48A5970A9E78 /* LufgaMediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 024447B86C9B4B6D97E2F949 /* LufgaMediumItalic.ttf */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = ChatWazobia;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E55061496E444A87DB790B /* LufgaExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraBold.ttf; path = ../assets/fonts/LufgaExtraBold.ttf; sourceTree = "<group>"; };
+		024447B86C9B4B6D97E2F949 /* LufgaMediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaMediumItalic.ttf; path = ../assets/fonts/LufgaMediumItalic.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ChatWazobia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatWazobia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ChatWazobia/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ChatWazobia/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ChatWazobia/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		25FEA488B3924FDE8A4413E3 /* LufgaLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaLightItalic.ttf; path = ../assets/fonts/LufgaLightItalic.ttf; sourceTree = "<group>"; };
+		32EFB0CADC7A40FF82AED60A /* LufgaSemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaSemiBoldItalic.ttf; path = ../assets/fonts/LufgaSemiBoldItalic.ttf; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-ChatWazobia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWazobia.debug.xcconfig"; path = "Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia.debug.xcconfig"; sourceTree = "<group>"; };
+		4CEF4F09451946AEBBDE2F3A /* LufgaExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraLight.ttf; path = ../assets/fonts/LufgaExtraLight.ttf; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-ChatWazobia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWazobia.release.xcconfig"; path = "Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-ChatWazobia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatWazobia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6210E100290E4F5EAD2EBB39 /* LufgaExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraBoldItalic.ttf; path = ../assets/fonts/LufgaExtraBoldItalic.ttf; sourceTree = "<group>"; };
+		74E1DDDDFA154A36AF5B7155 /* LufgaBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBoldItalic.ttf; path = ../assets/fonts/LufgaBoldItalic.ttf; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ChatWazobia/AppDelegate.swift; sourceTree = "<group>"; };
+		7E32E9222DE94B7EBD5E120D /* LufgaSemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaSemiBold.ttf; path = ../assets/fonts/LufgaSemiBold.ttf; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ChatWazobia/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		97F1D48A49D4464C89B48182 /* LufgaBlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBlackItalic.ttf; path = ../assets/fonts/LufgaBlackItalic.ttf; sourceTree = "<group>"; };
+		989D50D6683E4E41B839AAE7 /* LufgaLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaLight.ttf; path = ../assets/fonts/LufgaLight.ttf; sourceTree = "<group>"; };
+		9A8C6D674DBB4500B9B90E91 /* LufgaBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBold.ttf; path = ../assets/fonts/LufgaBold.ttf; sourceTree = "<group>"; };
+		9B8064A978EA44599006E877 /* LufgaThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaThinItalic.ttf; path = ../assets/fonts/LufgaThinItalic.ttf; sourceTree = "<group>"; };
+		A898711E0704420097B12787 /* LufgaBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBlack.ttf; path = ../assets/fonts/LufgaBlack.ttf; sourceTree = "<group>"; };
+		B724F26DD2C34861A2CCA094 /* LufgaExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraLightItalic.ttf; path = ../assets/fonts/LufgaExtraLightItalic.ttf; sourceTree = "<group>"; };
+		C2E4B9CA43374134B8707CB4 /* LufgaItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaItalic.ttf; path = ../assets/fonts/LufgaItalic.ttf; sourceTree = "<group>"; };
+		C442116D0D2C40AEBB3A9387 /* LufgaRegular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaRegular.ttf; path = ../assets/fonts/LufgaRegular.ttf; sourceTree = "<group>"; };
+		D14238A4AEC145C0A53C8642 /* LufgaMedium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaMedium.ttf; path = ../assets/fonts/LufgaMedium.ttf; sourceTree = "<group>"; };
+		D423FA77768247BCAA4638E5 /* LufgaThin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaThin.ttf; path = ../assets/fonts/LufgaThin.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -49,14 +75,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356F01AD99517003FC87E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				00E356F11AD99517003FC87E /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* ChatWazobia */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +111,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				9618A64F730C4FAEB52892B9 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -105,6 +124,32 @@
 				13B07F961A680F5B00A75B9A /* ChatWazobia.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9618A64F730C4FAEB52892B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A898711E0704420097B12787 /* LufgaBlack.ttf */,
+				97F1D48A49D4464C89B48182 /* LufgaBlackItalic.ttf */,
+				9A8C6D674DBB4500B9B90E91 /* LufgaBold.ttf */,
+				74E1DDDDFA154A36AF5B7155 /* LufgaBoldItalic.ttf */,
+				00E55061496E444A87DB790B /* LufgaExtraBold.ttf */,
+				6210E100290E4F5EAD2EBB39 /* LufgaExtraBoldItalic.ttf */,
+				4CEF4F09451946AEBBDE2F3A /* LufgaExtraLight.ttf */,
+				B724F26DD2C34861A2CCA094 /* LufgaExtraLightItalic.ttf */,
+				C2E4B9CA43374134B8707CB4 /* LufgaItalic.ttf */,
+				989D50D6683E4E41B839AAE7 /* LufgaLight.ttf */,
+				25FEA488B3924FDE8A4413E3 /* LufgaLightItalic.ttf */,
+				D14238A4AEC145C0A53C8642 /* LufgaMedium.ttf */,
+				024447B86C9B4B6D97E2F949 /* LufgaMediumItalic.ttf */,
+				C442116D0D2C40AEBB3A9387 /* LufgaRegular.ttf */,
+				7E32E9222DE94B7EBD5E120D /* LufgaSemiBold.ttf */,
+				32EFB0CADC7A40FF82AED60A /* LufgaSemiBoldItalic.ttf */,
+				D423FA77768247BCAA4638E5 /* LufgaThin.ttf */,
+				9B8064A978EA44599006E877 /* LufgaThinItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -172,19 +217,31 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		00E356EC1AD99517003FC87E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				38BEE1221A2DC8DE464FD900 /* PrivacyInfo.xcprivacy in Resources */,
+				1A06C4A3BFB7420BB986A207 /* LufgaBlack.ttf in Resources */,
+				CD3FE6BD08574C80A8178A74 /* LufgaBlackItalic.ttf in Resources */,
+				EC0F2585E9064D408EF385DF /* LufgaBold.ttf in Resources */,
+				946DCF73CEFF44AFAE0CA521 /* LufgaBoldItalic.ttf in Resources */,
+				21184FAEA8854F3F8C3067D2 /* LufgaExtraBold.ttf in Resources */,
+				8DC5B1FD42164D168DFEB9F0 /* LufgaExtraBoldItalic.ttf in Resources */,
+				DB9F9457C96A4FDFBF8B720C /* LufgaExtraLight.ttf in Resources */,
+				C5897CFFDBBF4537B6EB37A1 /* LufgaExtraLightItalic.ttf in Resources */,
+				BD957380E8FB4DBDA9CD0FAD /* LufgaItalic.ttf in Resources */,
+				B310953C8C7348559FE7F38C /* LufgaLight.ttf in Resources */,
+				64229D765B474A1493C86EEC /* LufgaLightItalic.ttf in Resources */,
+				E6A7591F981746DC9D0B3AAF /* LufgaMedium.ttf in Resources */,
+				F6958020AC1D48A5970A9E78 /* LufgaMediumItalic.ttf in Resources */,
+				2ED8E81E55EF4FA0B8A433F6 /* LufgaRegular.ttf in Resources */,
+				29B03D46EE3245F3A17DEB1C /* LufgaSemiBold.ttf in Resources */,
+				B75AA935B08D4C67BE29C19D /* LufgaSemiBoldItalic.ttf in Resources */,
+				B0A619C0B6F14C9C9C017915 /* LufgaThin.ttf in Resources */,
+				1A8E491AE8264492AED769F2 /* LufgaThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,14 +332,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* ChatWazobia */;
-			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
@@ -408,7 +457,14 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -473,7 +529,13 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
