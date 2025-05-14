@@ -38,6 +38,21 @@ export const mute = require(`${assetsPath}calls/mute.png`);
 export const unmute = require(`${assetsPath}calls/unmute.png`);
 export const endcall = require(`${assetsPath}calls/endcall.png`);
 export const endcallnew = require(`${assetsPath}calls/endcallnew.png`);
+export const missedaudio = require(`${assetsPath}calls/missedaudio.png`);
+export const missedvideo = require(`${assetsPath}calls/missedvideo.png`);
+export const connection = require(`${assetsPath}calls/connection.png`);
 
 //endcallnew
-export const connection = require(`${assetsPath}calls/connection.png`);
+export const aicard = require(`${assetsPath}studio/aicard.png`);
+export const art = require(`${assetsPath}studio/art.png`);
+export const camera = require(`${assetsPath}studio/camera.png`);
+export const deletestudio = require(`${assetsPath}studio/delete.png`);
+export const download = require(`${assetsPath}studio/download.png`);
+export const generate = require(`${assetsPath}studio/generate.png`);
+export const inspo = require(`${assetsPath}studio/inspo.png`);
+export const photo = require(`${assetsPath}studio/photo.png`);
+export const photoa = require(`${assetsPath}studio/photoa.png`);
+export const photob = require(`${assetsPath}studio/photob.png`);
+export const settings = require(`${assetsPath}studio/settings.png`);
+export const share = require(`${assetsPath}studio/share.png`);
+export const studiogreen = require(`${assetsPath}studio/studiogreen.png`);

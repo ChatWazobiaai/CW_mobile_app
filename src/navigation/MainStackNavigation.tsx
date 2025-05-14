@@ -13,6 +13,8 @@ import MessagingScreen from '../pages/messages/MessagingScreen';
 import CallScreen from '../pages/calls/CallScreen';
 import AddCallScreen from '../pages/calls/AddCallScreen';
 import CallSession from '../pages/calls/CallSession';
+import RecentCalls from '../pages/calls/RecentCalls';
+import AIImageGenerator from '../pages/studio/AIImageGenerator';
 
 export type MainStackParamList = {
   Homepage: undefined;
@@ -34,6 +36,8 @@ export type MainStackParamList = {
   CallSession: {
     contactName: string;
   };
+  RecentCalls: any;
+  AIImageGenerator: any;
 };
 
 const MainStack = createStackNavigator<MainStackParamList>();
@@ -61,10 +65,16 @@ const MainStackNavigator: React.FC = () => {
   // console.log(user?.newUser, 'mainstack')
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <MainStack.Navigator initialRouteName={'CallSession'}>
+      <MainStack.Navigator initialRouteName={'AIImageGenerator'}>
         <MainStack.Screen
           name="Homepage"
           component={HomePage}
+          options={{headerShown: false}}
+        />
+
+        <MainStack.Screen
+          name="AIImageGenerator"
+          component={AIImageGenerator}
           options={{headerShown: false}}
         />
         <MainStack.Screen
@@ -78,7 +88,11 @@ const MainStackNavigator: React.FC = () => {
           component={ChatsPage}
           options={{headerShown: false}}
         />
-
+        <MainStack.Screen
+          name="RecentCalls"
+          component={RecentCalls}
+          options={{headerShown: false}}
+        />
         <MainStack.Screen
           name="CallsPage"
           component={CallsPage}

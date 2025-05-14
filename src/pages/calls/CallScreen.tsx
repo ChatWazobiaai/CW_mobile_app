@@ -21,6 +21,7 @@ import {
   createvc,
   createvoice,
 } from '../../components/Images/DefinedImages';
+import RecentCalls from './RecentCalls';
 
 const tabs = ['All', 'Missed'];
 
@@ -57,21 +58,29 @@ const CallScreen = () => {
         </View>
       </View>
 
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Image source={callsideimages} style={styles.callIllustration} />
-        <RegularText style={styles.description}>
-          Make a call by tapping the button below and click either voice or
-          video to select a contact.
-        </RegularText>
-      </ScrollView>
+      {activeTab === 'All' && (
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          <Image source={callsideimages} style={styles.callIllustration} />
+          <RegularText style={styles.description}>
+            Make a call by tapping the button below and click either voice or
+            video to select a contact.
+          </RegularText>
+        </ScrollView>
+      )}
+
+      {activeTab === 'Missed' && <RecentCalls />}
 
       <View style={styles.callButtonsContainer}>
-        <TouchableOpacity style={styles.callButton}>
-          <Image source={createvc} style={styles.callIcon} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.callButton}>
-          <Image source={createvoice} style={styles.callIcon} />
-        </TouchableOpacity>
+        {activeTab === 'All' && (
+          <View>
+            <TouchableOpacity style={styles.callButton}>
+              <Image source={createvc} style={styles.callIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.callButton}>
+              <Image source={createvoice} style={styles.callIcon} />
+            </TouchableOpacity>
+          </View>
+        )}
         <TouchableOpacity
           style={styles.callButton}
           onPress={() => navigation.navigate('AddCallScreen' as never)}>
@@ -156,6 +165,9 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginRight: 16,
     gap: 12,
+    position: 'absolute',
+    bottom: 36,
+    right: 0,
   },
   callButton: {
     flexDirection: 'row',
