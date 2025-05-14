@@ -21,7 +21,7 @@ import SearchIcon from '../../components/Icons/SearchIcon/SearchIcon';
 import AddIcon from '../../components/Icons/AddIcon/AddIcon';
 import {Colors} from '../../components/Colors/Colors';
 import MarkItemIcon from '../../components/Icons/MarkItemIcon/MarkItemIcon';
-import {logoImage} from '../../components/Images/DefinedImages';
+import {logoImage, userImage} from '../../components/Images/DefinedImages';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import ArrowLeftIcon from '../../components/Icons/Arrows/ArrowLeftIcon';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -120,74 +120,74 @@ const ChatsPage = (props: Props) => {
 
   const handleContactPress = async (selectedContact: ContactType) => {
     console.log('📝 Contact Selected:', selectedContact);
-
-    if (isSelectionMode) {
-      setSelectedContacts(prevState =>
-        prevState.includes(selectedContact._id)
-          ? prevState.filter(id => id !== selectedContact._id)
-          : [...prevState, selectedContact._id],
-      );
-    } else {
-      if (selectedContact.contactUserId && selectedContact.messagesArrayID) {
-        console.log(
-          `🔗 Joining Group: ${selectedContact.messagesArrayID} as User ${selectedContact.contactUserId}`,
+    if (myUserId)
+      if (isSelectionMode) {
+        setSelectedContacts(prevState =>
+          prevState.includes(selectedContact._id)
+            ? prevState.filter(id => id !== selectedContact._id)
+            : [...prevState, selectedContact._id],
         );
-
-        if (socket) {
-          socket.emit('joinGroup', {
-            groupId: selectedContact.messagesArrayID,
-            userId: selectedContact.contactUserId,
-          });
-          console.log(
-            `✅ Emitted joinGroup for Group ${selectedContact.messagesArrayID}`,
-          );
-        } else {
-          console.error('❌ Socket connection is missing!');
-        }
-
-        if (myUserId) {
-          setApiResponse(null);
-          dispatch(fetchMessages(selectedContact?.messagesArrayID))
-            .then(response => {
-              const apiResult = handleApiResponse(response.payload);
-
-              if (apiResult.success) {
-                setApiResponse(apiResult.data?.messages || []);
-                console.log('✅ API Response:', apiResult);
-
-                navigation.navigate('MessagingScreen', {
-                  contactUserId: selectedContact.contactUserId,
-                  messagesArrayID: selectedContact.messagesArrayID,
-                  contactName: selectedContact?.contactName,
-                  photo: logoImage,
-                  myUserId: myUserId,
-                  messagesApiResponse: apiResult.data?.messages,
-                });
-              } else {
-                console.warn('⚠️', apiResult.message);
-              }
-            })
-            .catch(err => {
-              console.error('❌ API Error:', err);
-            });
-
-        //   navigation.navigate('MessagingScreen', {
-        //     contactUserId: selectedContact.contactUserId,
-        //     messagesArrayID: selectedContact.messagesArrayID,
-        //     contactName: selectedContact?.contactName,
-        //     photo: logoImage,
-        //     myUserId: myUserId,
-        //     messagesApiResponse: apiResponse,
-        //   });
-        } else {
-          console.error('⚠️ User ID is not available yet.');
-        }
       } else {
-        console.log(
-          `📩 Invite ${selectedContact.contactName} to ChatWazobia AI`,
-        );
+        if (selectedContact.contactUserId && selectedContact.messagesArrayID) {
+          console.log(
+            `🔗 Joining Group: ${selectedContact.messagesArrayID} as User ${selectedContact.contactUserId}`,
+          );
+
+          if (socket) {
+            socket.emit('joinGroup', {
+              groupId: selectedContact.messagesArrayID,
+              userId: selectedContact.contactUserId,
+            });
+            console.log(
+              `✅ Emitted joinGroup for Group ${selectedContact.messagesArrayID}`,
+            );
+          } else {
+            console.error('❌ Socket connection is missing!');
+          }
+
+          if (myUserId) {
+            setApiResponse(null);
+            dispatch(fetchMessages(selectedContact?.messagesArrayID))
+              .then(response => {
+                const apiResult = handleApiResponse(response.payload);
+
+                if (apiResult.success) {
+                  setApiResponse(apiResult.data?.messages || []);
+                  console.log('✅ API Response:', apiResult);
+
+                  navigation.navigate('MessagingScreen', {
+                    contactUserId: selectedContact.contactUserId,
+                    messagesArrayID: selectedContact.messagesArrayID,
+                    contactName: selectedContact?.contactName,
+                    photo: logoImage,
+                    myUserId: myUserId,
+                    messagesApiResponse: apiResult.data?.messages,
+                  });
+                } else {
+                  console.warn('⚠️', apiResult.message);
+                }
+              })
+              .catch(err => {
+                console.error('❌ API Error:', err);
+              });
+
+            //   navigation.navigate('MessagingScreen', {
+            //     contactUserId: selectedContact.contactUserId,
+            //     messagesArrayID: selectedContact.messagesArrayID,
+            //     contactName: selectedContact?.contactName,
+            //     photo: logoImage,
+            //     myUserId: myUserId,
+            //     messagesApiResponse: apiResponse,
+            //   });
+          } else {
+            console.error('⚠️ User ID is not available yet.');
+          }
+        } else {
+          console.log(
+            `📩 Invite ${selectedContact.contactName} to ChatWazobia AI`,
+          );
+        }
       }
-    }
   };
 
   const renderItem = ({
@@ -210,7 +210,7 @@ const ChatsPage = (props: Props) => {
       onPress={() => handleContactPress(item as any)}>
       <View style={styles.contactImageContainer}>
         <Image
-          source={item.contactImage ? {uri: item.contactImage} : logoImage}
+          source={item.contactImage ? {uri: item.contactImage} : userImage}
           style={styles.contactImage}
         />
       </View>
@@ -337,7 +337,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   selectedContact: {
-    backgroundColor: '#3a3a3a', // Highlight selected contacts
+    backgroundColor: '#3a3a3a',
   },
   contactImageContainer: {
     marginRight: 12,
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
   contactImage: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: 6,
   },
   contactTextContainer: {
     flex: 1,

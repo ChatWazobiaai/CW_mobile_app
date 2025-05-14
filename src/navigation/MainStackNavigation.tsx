@@ -10,6 +10,9 @@ import UsernamePage from '../pages/auth/UsernamePage';
 import {useAuth} from '../contexts/useAuth';
 import {useNavigation} from '@react-navigation/native';
 import MessagingScreen from '../pages/messages/MessagingScreen';
+import CallScreen from '../pages/calls/CallScreen';
+import AddCallScreen from '../pages/calls/AddCallScreen';
+import CallSession from '../pages/calls/CallSession';
 
 export type MainStackParamList = {
   Homepage: undefined;
@@ -25,6 +28,11 @@ export type MainStackParamList = {
     photo: any;
     myUserId: any;
     messagesApiResponse: any;
+  };
+  CallScreen: any;
+  AddCallScreen: any;
+  CallSession: {
+    contactName: string;
   };
 };
 
@@ -53,7 +61,7 @@ const MainStackNavigator: React.FC = () => {
   // console.log(user?.newUser, 'mainstack')
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <MainStack.Navigator initialRouteName={'Homepage'}>
+      <MainStack.Navigator initialRouteName={'CallSession'}>
         <MainStack.Screen
           name="Homepage"
           component={HomePage}
@@ -64,16 +72,35 @@ const MainStackNavigator: React.FC = () => {
           component={UsernamePage}
           options={{headerShown: false}}
         />
+
         <MainStack.Screen
           name="ChatsPage"
           component={ChatsPage}
           options={{headerShown: false}}
         />
+
         <MainStack.Screen
           name="CallsPage"
           component={CallsPage}
           options={{headerShown: false}}
         />
+        <MainStack.Screen
+          name="CallSession"
+          component={CallSession}
+          options={{headerShown: false}}
+        />
+        <MainStack.Screen
+          name="CallScreen"
+          component={CallScreen}
+          options={{headerShown: false}}
+        />
+
+        <MainStack.Screen
+          name="AddCallScreen"
+          component={AddCallScreen}
+          options={{headerShown: false}}
+        />
+
         <MainStack.Screen
           name="GamesPage"
           component={GamesPage}

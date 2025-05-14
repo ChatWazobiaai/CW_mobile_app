@@ -5,12 +5,14 @@ import WelcomeAuthPage from '../pages/auth/WelcomeAuthPage';
 import AuthPage from '../pages/auth/AuthPage';
 import OTPPage from '../pages/auth/OTPPage';
 import UsernamePage from '../pages/auth/UsernamePage';
+import WelcomeAuthPageGreen from '../pages/auth/WelcomeAuthPageGreen';
 
 export type AuthStackParamList = {
   WelcomeAuthPage: undefined;
   AuthPage: undefined;
   OTPPage: {phoneNumber: string};
   UsernamePage: undefined;
+  WelcomeAuthPageGreen: undefined;
 };
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
@@ -22,6 +24,11 @@ const AuthStackNavigator: React.FC = () => {
         <AuthStack.Screen
           name="WelcomeAuthPage"
           component={WelcomeAuthPage}
+          options={{headerShown: false}}
+        />
+        <AuthStack.Screen
+          name="WelcomeAuthPageGreen"
+          component={WelcomeAuthPageGreen}
           options={{headerShown: false}}
         />
         <AuthStack.Screen

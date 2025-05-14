@@ -1,7 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const BaseUrl = `http://192.168.0.20:1000`;
+//export const BaseUrl = `http://192.168.0.20:1008`;
+
+
+export const BaseUrl = `http://localhost:1008`;
 
 export const getAuthHeaders = async () => {
     try {

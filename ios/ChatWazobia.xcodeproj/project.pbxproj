@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C80B921A6F3F58F76C31292 /* libPods-ChatWazobia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-ChatWazobia.a */; };
+		0014C7F4802C16492D9D3BAE /* libPods-ChatWazobia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 879B5EE435545C5E97630AD8 /* libPods-ChatWazobia.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		1A06C4A3BFB7420BB986A207 /* LufgaBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A898711E0704420097B12787 /* LufgaBlack.ttf */; };
 		1A8E491AE8264492AED769F2 /* LufgaThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8064A978EA44599006E877 /* LufgaThinItalic.ttf */; };
@@ -41,15 +41,14 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ChatWazobia/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		25FEA488B3924FDE8A4413E3 /* LufgaLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaLightItalic.ttf; path = ../assets/fonts/LufgaLightItalic.ttf; sourceTree = "<group>"; };
 		32EFB0CADC7A40FF82AED60A /* LufgaSemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaSemiBoldItalic.ttf; path = ../assets/fonts/LufgaSemiBoldItalic.ttf; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-ChatWazobia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWazobia.debug.xcconfig"; path = "Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia.debug.xcconfig"; sourceTree = "<group>"; };
 		4CEF4F09451946AEBBDE2F3A /* LufgaExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraLight.ttf; path = ../assets/fonts/LufgaExtraLight.ttf; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-ChatWazobia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWazobia.release.xcconfig"; path = "Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia.release.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-ChatWazobia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatWazobia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6210E100290E4F5EAD2EBB39 /* LufgaExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraBoldItalic.ttf; path = ../assets/fonts/LufgaExtraBoldItalic.ttf; sourceTree = "<group>"; };
 		74E1DDDDFA154A36AF5B7155 /* LufgaBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBoldItalic.ttf; path = ../assets/fonts/LufgaBoldItalic.ttf; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ChatWazobia/AppDelegate.swift; sourceTree = "<group>"; };
+		79F9128E6BF7486CC2AEB73B /* Pods-ChatWazobia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWazobia.debug.xcconfig"; path = "Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia.debug.xcconfig"; sourceTree = "<group>"; };
 		7E32E9222DE94B7EBD5E120D /* LufgaSemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaSemiBold.ttf; path = ../assets/fonts/LufgaSemiBold.ttf; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ChatWazobia/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		879B5EE435545C5E97630AD8 /* libPods-ChatWazobia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatWazobia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F1D48A49D4464C89B48182 /* LufgaBlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBlackItalic.ttf; path = ../assets/fonts/LufgaBlackItalic.ttf; sourceTree = "<group>"; };
 		989D50D6683E4E41B839AAE7 /* LufgaLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaLight.ttf; path = ../assets/fonts/LufgaLight.ttf; sourceTree = "<group>"; };
 		9A8C6D674DBB4500B9B90E91 /* LufgaBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBold.ttf; path = ../assets/fonts/LufgaBold.ttf; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		D14238A4AEC145C0A53C8642 /* LufgaMedium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaMedium.ttf; path = ../assets/fonts/LufgaMedium.ttf; sourceTree = "<group>"; };
 		D423FA77768247BCAA4638E5 /* LufgaThin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaThin.ttf; path = ../assets/fonts/LufgaThin.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F981840BD555D6110904546C /* Pods-ChatWazobia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWazobia.release.xcconfig"; path = "Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-ChatWazobia.a in Frameworks */,
+				0014C7F4802C16492D9D3BAE /* libPods-ChatWazobia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-ChatWazobia.a */,
+				879B5EE435545C5E97630AD8 /* libPods-ChatWazobia.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,8 +155,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-ChatWazobia.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-ChatWazobia.release.xcconfig */,
+				79F9128E6BF7486CC2AEB73B /* Pods-ChatWazobia.debug.xcconfig */,
+				F981840BD555D6110904546C /* Pods-ChatWazobia.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -168,13 +168,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ChatWazobia" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				A5276FCBAB3711CB05D81491 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				F2EEB0149DB74A918777236E /* [CP] Embed Pods Frameworks */,
+				D40BCDC73E155179669E4D05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,24 +264,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		A5276FCBAB3711CB05D81491 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -303,7 +286,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+		D40BCDC73E155179669E4D05 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -318,6 +301,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2EEB0149DB74A918777236E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatWazobia/Pods-ChatWazobia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -336,7 +336,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-ChatWazobia.debug.xcconfig */;
+			baseConfigurationReference = 79F9128E6BF7486CC2AEB73B /* Pods-ChatWazobia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -364,7 +364,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-ChatWazobia.release.xcconfig */;
+			baseConfigurationReference = F981840BD555D6110904546C /* Pods-ChatWazobia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

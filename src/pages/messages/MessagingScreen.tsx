@@ -13,6 +13,11 @@ import {
   Platform,
   Pressable,
   TouchableOpacity,
+  ScrollView,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  useWindowDimensions,
 } from 'react-native';
 import {useSockets} from '../../contexts/SocketProvider';
 import {
@@ -25,13 +30,20 @@ import CheckedIcon from '../../components/Icons/CheckedIcon/Checkedcon';
 import Clipboard from '@react-native-clipboard/clipboard';
 import AuthHeaders from '../../components/Headers/AuthHeaders';
 import MessageHeaders from '../../components/Headers/MessageHeaders';
-import {chatImage, sendimage} from '../../components/Images/DefinedImages';
+import {
+  aa,
+  chatImage,
+  cw,
+  sendimage,
+  voice,
+} from '../../components/Images/DefinedImages';
 import {Colors} from '../../components/Colors/Colors';
 import {BlurView} from '@react-native-community/blur';
 import {v4 as uuidv4} from 'uuid';
 import 'react-native-get-random-values';
 import {useDispatch} from 'react-redux';
 import {AppDispatch} from '../../redux/Store';
+//import Tts from 'react-native-tts';
 
 type Message = {
   id?: string;
@@ -51,6 +63,7 @@ type Message = {
 };
 
 const MessagingScreen = () => {
+  const {width, height} = useWindowDimensions();
   const route = useRoute();
   const {
     contactUserId,
@@ -66,7 +79,7 @@ const MessagingScreen = () => {
   );
   const [messageText, setMessageText] = useState('');
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
-
+  const [showTranslationFor, setShowTranslationFor] = useState(null);
   console.log(`messagesApiResponse`, messagesApiResponse);
 
   useEffect(() => {
@@ -81,6 +94,16 @@ const MessagingScreen = () => {
     Clipboard.setString(text);
     Alert.alert('Copied', 'Message copied to clipboard');
     setSelectedMessage(null);
+  };
+
+  const handlePlayTranslationAudio = (text: any) => {
+    if (!text) return;
+
+    // Tts.stop(); // Stop ongoing speech
+    // Tts.setDefaultLanguage('en-US');
+    // Tts.setDefaultRate(0.9);
+    // Tts.setDefaultPitch(1.0);
+    // Tts.speak(text);
   };
 
   const handleDelete = (messageId: string) => {
@@ -153,7 +176,8 @@ const MessagingScreen = () => {
     const messageId = uuidv4();
     const newMessage: Message = {
       messageId: messageId,
-      receiverId: contactUserId,
+      //   receiverId: contactUserId,
+      receiverId: [contactUserId],
       senderId: myUserId,
       text: messageText.trim(),
 
@@ -340,229 +364,295 @@ const MessagingScreen = () => {
   }, [messages]);
 
   return (
-    <ImageBackground style={styles.container} source={chatImage}>
-      <MessageHeaders fullName={contactName} />
-      <FlatList
-        ref={flatListRef}
-        data={messages}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <Pressable
-            style={[
-              {
-                padding: 0,
-                margin: 0,
-                alignSelf:
-                  item.senderId === myUserId ? 'flex-end' : 'flex-start',
-              },
-            ]}>
-            <Pressable
-              onPress={() => setSelectedMessage(item)}
-              style={[
-                styles.messageBubble,
-                item.senderId == myUserId
-                  ? styles.myMessage
-                  : styles.otherMessage,
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{flex: 1}}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ImageBackground style={styles.container} source={chatImage}>
+          <MessageHeaders fullName={contactName} />
 
-                {
-                  flexDirection: 'row',
-                  gap: 4,
-                  alignItems: 'flex-end',
-                },
-              ]}>
-              <View>
+          <FlatList
+            ref={flatListRef}
+            data={messages}
+            keyExtractor={item => item.id}
+            renderItem={({item}) => (
+              <Pressable
+                style={[
+                  {
+                    padding: 0,
+                    margin: 0,
+                    alignSelf:
+                      item.senderId === myUserId ? 'flex-end' : 'flex-start',
+                  },
+                ]}>
                 {item.replyTrue && (
                   <TouchableOpacity
                     style={{
-                      backgroundColor: '#ffffff12',
+                      backgroundColor: '#ffff',
                       padding: 12,
                       borderRadius: 16,
+                      marginTop: 24,
                     }}
                     onPress={() => scrollToMessage(item?.repliedMessageId)}>
-                    <BoldText style={styles.replyText}>
+                    <RegularText style={styles.replyText}>
                       Replying to: {getMessageText(item?.repliedMessageId)}
-                    </BoldText>
+                    </RegularText>
                   </TouchableOpacity>
                 )}
 
-                <RegularText style={styles.messageText}>
-                  {item.text}
-                </RegularText>
-              </View>
-              <View>
-                {item.senderId === myUserId && (
-                  <RegularText style={styles.statusText}>
-                    {item.status === 'pending' ? (
-                      <PendingIcon width={13} height={13} />
-                    ) : item.status === 'delivered' ? (
-                      <CheckedIcon
-                        width={13}
-                        height={13}
-                        color={Colors.primaryColor}
-                      />
-                    ) : item.status === 'edited' ? (
+                <Pressable
+                  style={[
+                    {
+                      flexDirection:
+                        item.senderId == myUserId ? 'row-reverse' : 'row',
+                      gap: 4,
+                      alignItems: 'center',
+                      backgroundColor: 'transparent',
+                    },
+                  ]}>
+                  <Pressable
+                    onPress={() => setSelectedMessage(item)}
+                    style={[
+                      styles.messageBubble,
+                      item.senderId == myUserId
+                        ? styles.myMessage
+                        : styles.otherMessage,
+                      {
+                        flexDirection: 'row',
+                        gap: 4,
+                        alignItems: 'flex-start',
+                      },
+                    ]}>
+                    <View>
                       <RegularText
-                        style={{fontSize: 11, color: Colors.primaryColor}}>
-                        edited
+                        style={[
+                          styles.messageText,
+                          {
+                            color:
+                              item.senderId == myUserId ? '#fff' : '#2A2A2A',
+                          },
+                        ]}>
+                        {item.text}
                       </RegularText>
-                    ) : (
-                      <CheckedIcon width={13} height={13} />
-                    )}
-                  </RegularText>
-                )}
-              </View>
-            </Pressable>
+                    </View>
 
-            {item.reactions && item.reactions.length > 0 && (
-              <Pressable
-                onPress={() => setSelectedMessage(item)}
-                style={{
-                  zIndex: 3,
-                  backgroundColor: '#4F4F4F99',
-                  alignSelf: 'flex-end',
-                  borderRadius: 1222,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: 4,
-                  marginTop: -14,
-                  marginRight: 4,
-                }}>
-                {item.reactions.map((reactionObj: any, index: any) => (
-                  <BoldText key={index} style={styles.reactionText}>
-                    {reactionObj.reaction}
-                  </BoldText>
-                ))}
+                    <View>
+                      {item.senderId === myUserId && (
+                        <RegularText style={styles.statusText}>
+                          {item.status === 'edited' && (
+                            <RegularText
+                              style={{
+                                fontSize: 11,
+                                color: Colors.primaryColor,
+                              }}>
+                              edited
+                            </RegularText>
+                          )}
+                          {/* {item.status} */}
+                        </RegularText>
+                      )}
+                    </View>
+                  </Pressable>
+
+                  {item.senderId !== myUserId && (
+                    <Pressable
+                      onPress={() => {
+                        if (showTranslationFor === item.messageId) {
+                          setShowTranslationFor(null); // toggle off
+                        } else {
+                          setShowTranslationFor(item.messageId); // show this translation
+                        }
+                      }}>
+                      <Image source={cw} style={{width: 24, height: 24}} />
+                    </Pressable>
+                  )}
+                </Pressable>
+
+                {item.reactions && item.reactions.length > 0 && (
+                  <Pressable
+                    onPress={() => setSelectedMessage(item)}
+                    style={{
+                      zIndex: 3,
+                      backgroundColor: '#4F4F4F99',
+                      alignSelf:
+                        item?.senderId === myUserId ? 'flex-end' : 'flex-start',
+                      borderRadius: 1222,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: 4,
+                      marginTop: -14,
+                      marginRight: 4,
+                    }}>
+                    {item.reactions.map((reactionObj: any, index: any) => (
+                      <BoldText
+                        key={index}
+                        style={[
+                          styles.reactionText,
+                          {
+                            fontSize: 12,
+                          },
+                        ]}>
+                        {reactionObj.reaction}
+                      </BoldText>
+                    ))}
+                  </Pressable>
+                )}
+
+                {showTranslationFor === item.messageId && item.translations && (
+                  <View>
+                    <Pressable
+                      onPress={() =>
+                        handlePlayTranslationAudio(
+                          item.translations.translatedText,
+                        )
+                      }
+                      style={[
+                        {
+                          flexDirection: 'row',
+                          gap: 4,
+                          alignItems: 'center',
+                          backgroundColor: 'transparent',
+                        },
+                      ]}>
+                      <Pressable
+                        style={[
+                          styles.messageBubble,
+                          item.senderId == myUserId
+                            ? styles.myMessage
+                            : styles.otherMessage,
+                          {
+                            flexDirection: 'row',
+                            gap: 4,
+                            alignItems: 'flex-end',
+                            backgroundColor: '#2E2E2E',
+                            width: '65%',
+                          },
+                        ]}>
+                        <View>
+                          <RegularText
+                            fontSize={10}
+                            style={[
+                              styles.messageText,
+                              {
+                                color:
+                                  item.senderId == myUserId ? '#fff' : '#fff',
+                              },
+                            ]}>
+                            {item.translations.translatedText ||
+                              'No translation found'}
+                          </RegularText>
+                        </View>
+                      </Pressable>
+                      <Image source={voice} style={{width: 24, height: 24}} />
+                    </Pressable>
+
+                    <Pressable
+                      onPress={() =>
+                        handlePlayTranslationAudio(
+                          item.translations.translatedText,
+                        )
+                      }
+                      style={[
+                        {
+                          flexDirection: 'row',
+                          gap: 4,
+                          alignItems: 'center',
+                          backgroundColor: 'transparent',
+                        },
+                      ]}>
+                      <Pressable
+                        style={[
+                          styles.messageBubble,
+                          item.senderId == myUserId
+                            ? styles.myMessage
+                            : styles.otherMessage,
+                          {
+                            flexDirection: 'row',
+                            gap: 4,
+                            alignItems: 'flex-end',
+                            backgroundColor: '#2E2E2E',
+                          },
+                        ]}>
+                        <RegularText
+                          fontSize={12}
+                          style={{
+                            color: '#fff',
+                          }}>
+                          Hear this message
+                        </RegularText>
+                      </Pressable>
+
+                      {item.senderId !== myUserId && (
+                        <Image source={aa} style={{width: 24, height: 24}} />
+                      )}
+                    </Pressable>
+                  </View>
+                )}
               </Pressable>
             )}
-          </Pressable>
-        )}
-        contentContainerStyle={styles.messagesList}
-      />
+            contentContainerStyle={styles.messagesList}
+          />
 
-      {/* Message Input */}
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          value={messageText}
-          onChangeText={setMessageText}
-          placeholder="Type a message..."
-          placeholderTextColor="#888"
-          multiline={true} // Allows multiple lines
-          returnKeyType="default" // Ensures Enter adds a new line
-        />
-
-        <Pressable
-          onPress={() => {
-            if (editingMessage) {
-              handleSaveEdit();
-            } else if (replyMessage) {
-              handleSaveReply();
-            } else {
-              handleSendMessage();
-            }
-          }}
-          style={({pressed}) => [
-            // styles.sendButton,
-            {opacity: pressed ? 0.7 : 1},
-          ]}>
-          <Image source={sendimage} style={{width: 42, height: 42}} />
-        </Pressable>
-      </View>
-
-      {selectedMessage && (
-        <Modal
-          transparent
-          animationType="fade"
-          visible={!!selectedMessage}
-          onRequestClose={() => {
-            setSelectedMessage(null);
-            setSet(false);
-          }}>
-          <Pressable
-            onPress={() => {
-              setSelectedMessage(null);
-              setSet(false);
-            }}
-            style={{height: '100%'}}>
-            <BlurView
-              style={styles.blurBackground}
-              blurType="dark"
-              blurAmount={15}
+          {/* Message Input */}
+          <View
+            style={[
+              styles.inputContainer,
+              editingMessage || replyMessage ? {zIndex: 10} : null,
+            ]}>
+            <TextInput
+              style={styles.input}
+              value={messageText}
+              onChangeText={setMessageText}
+              placeholder="Type a message..."
+              placeholderTextColor="#888"
+              multiline={true} // Allows multiple lines
+              returnKeyType="default" // Ensures Enter adds a new line
             />
 
-            {/* Modal Content */}
-            <View
-              style={[
-                styles.modalContainer,
-                {
-                  alignSelf:
-                    selectedMessage?.senderId === myUserId
-                      ? 'flex-end'
-                      : 'flex-start',
-                },
+            <Pressable
+              onPress={() => {
+                if (editingMessage) {
+                  handleSaveEdit();
+                } else if (replyMessage) {
+                  handleSaveReply();
+                } else {
+                  handleSendMessage();
+                }
+              }}
+              style={({pressed}) => [
+                // styles.sendButton,
+                {opacity: pressed ? 0.7 : 1},
               ]}>
-              <View
-                style={{
-                  backgroundColor: Colors.blackColor,
-                  width: '100%',
-                  borderRadius: 24,
-                  marginBottom: 6,
-                }}>
-                <RegularText style={styles.modalMessage}>
-                  {selectedMessage.text}
-                </RegularText>
-              </View>
+              <Image source={sendimage} style={{width: 42, height: 42}} />
+            </Pressable>
+          </View>
 
-              {/* Reaction Options */}
-              <View style={styles.reactionsContainer}>
-                {['❤️', '😂', '😭', '😤', '👍', '🥺', '🎉'].map(emoji => (
-                  <Pressable
-                    key={emoji}
-                    style={styles.reactionButton}
-                    onPress={() => handleReaction(emoji)}>
-                    <Text style={[styles.reactionText, {fontSize: 16}]}>
-                      {emoji}
-                    </Text>
-                  </Pressable>
-                ))}
-              </View>
+          {selectedMessage && (
+            <Modal
+              transparent
+              animationType="fade"
+              visible={!!selectedMessage}
+              onRequestClose={() => {
+                setSelectedMessage(null);
+                setSet(false);
+              }}>
+              <Pressable
+                onPress={() => {
+                  setSelectedMessage(null);
+                  setSet(false);
+                }}
+                style={{height: '100%'}}>
+                <BlurView
+                  style={styles.blurBackground}
+                  blurType="dark"
+                  blurAmount={15}
+                />
 
-              {/* Message Options */}
-
-              {isSetting === true ? (
-                <View style={styles.inputContainer}>
-                  <TextInput
-                    style={styles.input}
-                    value={messageText}
-                    onChangeText={setMessageText}
-                    placeholder="Type a message..."
-                    placeholderTextColor="#888"
-                    multiline={true} // Allows multiple lines
-                    // Prevents keyboard from closing on Enter
-                    returnKeyType="default" // Ensures Enter adds a new line
-                  />
-                  <Pressable
-                    onPress={() => {
-                      if (editingMessage) {
-                        handleSaveEdit();
-                      } else if (replyMessage) {
-                        handleSaveReply();
-                      } else {
-                        handleSendMessage();
-                      }
-                    }}
-                    style={({pressed}) => [
-                      // styles.sendButton,
-                      {opacity: pressed ? 0.7 : 1},
-                    ]}>
-                    <Image source={sendimage} style={{width: 42, height: 42}} />
-                  </Pressable>
-                </View>
-              ) : (
-                <View
-                  style={[
-                    styles.optionsContainer,
+                {/* Modal Content */}
+                <ScrollView
+                  contentContainerStyle={[
+                    styles.modalContainer,
                     {
                       alignSelf:
                         selectedMessage?.senderId === myUserId
@@ -570,79 +660,122 @@ const MessagingScreen = () => {
                           : 'flex-start',
                     },
                   ]}>
-                  <Pressable
-                    style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
-                    onPress={() => handleEdit(selectedMessage)}>
-                    <RegularText
-                      style={[
-                        styles.optionText,
-                        {
-                          textAlign:
-                            selectedMessage?.senderId === myUserId
-                              ? 'left'
-                              : 'left',
-                        },
-                      ]}>
-                      Edit
+                  <View
+                    style={{
+                      backgroundColor: Colors.blackColor,
+                      width: '100%',
+                      borderRadius: 24,
+                      marginBottom: 6,
+                    }}>
+                    <RegularText style={styles.modalMessage}>
+                      {selectedMessage.text}
                     </RegularText>
-                  </Pressable>
-                  <Pressable
-                    style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
-                    onPress={() => handleReply(selectedMessage)}>
-                    <RegularText
-                      style={[
-                        styles.optionText,
-                        {
-                          textAlign:
-                            selectedMessage?.senderId === myUserId
-                              ? 'left'
-                              : 'left',
-                        },
-                      ]}>
-                      Reply
-                    </RegularText>
-                  </Pressable>
-                  <Pressable
-                    style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
-                    onPress={() => handleCopy(selectedMessage.text)}>
-                    <RegularText
-                      style={[
-                        styles.optionText,
-                        {
-                          textAlign:
-                            selectedMessage?.senderId === myUserId
-                              ? 'left'
-                              : 'left',
-                        },
-                      ]}>
-                      Copy
-                    </RegularText>
-                  </Pressable>
-                  <Pressable
-                    style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
-                    onPress={() => handleDelete(selectedMessage?.id || '')}>
-                    <RegularText
-                      style={[
-                        styles.optionText,
-                        {
-                          textAlign:
-                            selectedMessage?.senderId === myUserId
-                              ? 'left'
-                              : 'left',
-                        },
-                      ]}>
-                      Delete
-                    </RegularText>
-                  </Pressable>
-                  <Pressable
-                    style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
-                    onPress={() => handleForward(selectedMessage)}>
-                    <RegularText style={styles.optionText}>Forward</RegularText>
-                  </Pressable>
-                </View>
-              )}
+                  </View>
 
-              {/* <View style={styles.inputContainer}>
+                  {/* Reaction Options */}
+                  <View style={styles.reactionsContainer}>
+                    {['❤️', '😂', '😭', '😤', '👍', '🥺', '🎉'].map(emoji => (
+                      <Pressable
+                        key={emoji}
+                        style={styles.reactionButton}
+                        onPress={() => handleReaction(emoji)}>
+                        <Text style={[styles.reactionText, {fontSize: 16}]}>
+                          {emoji}
+                        </Text>
+                      </Pressable>
+                    ))}
+                  </View>
+
+                  {/* Message Options */}
+
+                  {isSetting === true ? (
+                    <View></View>
+                  ) : (
+                    <View
+                      style={[
+                        styles.optionsContainer,
+                        {
+                          alignSelf:
+                            selectedMessage?.senderId === myUserId
+                              ? 'flex-end'
+                              : 'flex-start',
+                        },
+                      ]}>
+                      <Pressable
+                        style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
+                        onPress={() => handleEdit(selectedMessage)}>
+                        <RegularText
+                          style={[
+                            styles.optionText,
+                            {
+                              textAlign:
+                                selectedMessage?.senderId === myUserId
+                                  ? 'left'
+                                  : 'left',
+                            },
+                          ]}>
+                          Edit
+                        </RegularText>
+                      </Pressable>
+                      <Pressable
+                        style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
+                        onPress={() => handleReply(selectedMessage)}>
+                        <RegularText
+                          style={[
+                            styles.optionText,
+                            {
+                              textAlign:
+                                selectedMessage?.senderId === myUserId
+                                  ? 'left'
+                                  : 'left',
+                            },
+                          ]}>
+                          Reply
+                        </RegularText>
+                      </Pressable>
+                      <Pressable
+                        style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
+                        onPress={() => handleCopy(selectedMessage.text)}>
+                        <RegularText
+                          style={[
+                            styles.optionText,
+                            {
+                              textAlign:
+                                selectedMessage?.senderId === myUserId
+                                  ? 'left'
+                                  : 'left',
+                            },
+                          ]}>
+                          Copy
+                        </RegularText>
+                      </Pressable>
+                      <Pressable
+                        style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
+                        onPress={() => handleDelete(selectedMessage?.id || '')}>
+                        <RegularText
+                          style={[
+                            styles.optionText,
+                            {
+                              textAlign:
+                                selectedMessage?.senderId === myUserId
+                                  ? 'left'
+                                  : 'left',
+                            },
+                          ]}>
+                          Delete
+                        </RegularText>
+                      </Pressable>
+                      <Pressable
+                        style={{backgroundColor: '#Ffffff12', borderRadius: 12}}
+                        onPress={() => handleForward(selectedMessage)}>
+                        <RegularText style={styles.optionText}>
+                          Forward
+                        </RegularText>
+                      </Pressable>
+                    </View>
+                  )}
+
+                  {/* <View style={styles.inputContainer}>
               <TextInput
                 style={styles.input}
                 value={messageText}
@@ -658,11 +791,13 @@ const MessagingScreen = () => {
                 </Text>
               </Pressable>
             </View> */}
-            </View>
-          </Pressable>
-        </Modal>
-      )}
-    </ImageBackground>
+                </ScrollView>
+              </Pressable>
+            </Modal>
+          )}
+        </ImageBackground>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -673,18 +808,17 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     marginVertical: 5,
-    maxWidth: '80%',
-    alignSelf: 'flex-start',
+    maxWidth: '100%',
     paddingHorizontal: 12,
   },
   myMessage: {
-    backgroundColor: '#4F4F4F99',
+    backgroundColor: '#4F4F4F',
     alignSelf: 'flex-end',
     borderRadius: 24,
   },
-  otherMessage: {backgroundColor: '#2A2A2A'},
-  messageText: {color: '#FFF', fontSize: 16},
-  replyText: {color: '#FFF', fontSize: 16},
+  otherMessage: {backgroundColor: '#fff', color: '#2A2A2A', borderRadius: 24},
+  messageText: {color: '#FFF', fontSize: 13},
+  replyText: {color: '#000', fontSize: 13},
   statusText: {
     color: '#CCC',
     fontSize: 8,
@@ -784,15 +918,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 16,
   },
   modalContainer: {
     // backgroundColor: '#000',
-    padding: 15,
     borderRadius: 10,
     maxWidth: '80%',
     alignItems: 'flex-end',
-    top: '30%',
+    top: '10%',
     marginHorizontal: 16,
   },
   modalText: {

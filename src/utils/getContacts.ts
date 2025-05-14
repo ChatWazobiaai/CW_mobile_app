@@ -45,15 +45,19 @@ const getContacts = async (setContacts: React.Dispatch<React.SetStateAction<any>
             }
 
             // Handle multiple phone numbers
+            // Handle multiple phone numbers
             phoneNumbers.forEach((phone, index) => {
                 // Create a unique contact name based on index if multiple phone numbers exist
                 const phoneLabel = phone.label ? ` (${phone.label})` : '';
                 const phoneContactName = `${contactName}${phoneLabel}`;
 
+                // Remove spaces from phone number
+                const cleanPhoneNumber = phone.number.replace(/\s+/g, '');
+
                 // Save the contact in the array
                 contactsArray.push({
                     contactName: phoneContactName,
-                    phoneNumber: phone.number,
+                    phoneNumber: cleanPhoneNumber,
                     recordID: recordID,
                 });
             });

@@ -31,14 +31,12 @@ import {ContactsContext} from '../../contexts/ContactsContext';
 
 const imageData = [
   {source: homeChat, name: 'Chat', route: 'ChatsPage'},
-  {source: homeCalls, name: 'Calls', route: 'CallsPage'},
+  {source: homeCalls, name: 'Calls', route: 'CallScreen'},
   {source: homeGames, name: 'Games', route: 'GamesPage'},
   {source: homeStudio, name: 'Studio', route: 'StudioPage'},
 ];
 
 const HomePage: React.FC = () => {
-
-
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const navigation = useNavigation();
   const {accessToken, clearAuthData, user} = useAuth();
@@ -73,7 +71,6 @@ const HomePage: React.FC = () => {
           </BoldText>
         </View>
 
-        {/* Image Display Section */}
         <View
           style={{
             flexDirection: 'row',

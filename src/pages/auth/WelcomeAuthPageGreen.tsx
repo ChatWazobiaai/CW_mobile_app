@@ -7,7 +7,7 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import {logoImage, welcomeImage} from '../../components/Images/DefinedImages';
+import {white, welcomeImageGreen} from '../../components/Images/DefinedImages';
 import {
   BoldText,
   RegularText,
@@ -16,27 +16,27 @@ import {useNavigation} from '@react-navigation/native';
 
 const {height, width} = Dimensions.get('window');
 
-const WelcomeAuthPage = () => {
+const WelcomeAuthPageGreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
     // Navigate to AuthPage after 2 seconds
     setTimeout(() => {
-      navigation.navigate('WelcomeAuthPageGreen' as never);
-    }, 1000);
+      navigation.navigate('AuthPage' as never);
+    }, 2000);
   }, [navigation]);
 
   return (
-    <ImageBackground source={welcomeImage} style={styles.background}>
-      <View style={styles.container}>
-        <Image source={logoImage} style={styles.logo} />
+    <ImageBackground source={welcomeImageGreen} style={styles.background}>
+      {/* <View style={styles.container}>
+        <Image source={white} style={styles.logo} />
         <BoldText style={styles.header}>Chat WaZoBia AI</BoldText>
       </View>
       <View style={styles.textContainer}>
-        <RegularText style={styles.subtitle}>
+        <RegularText style={styles.subtitle} color='#fff'>
           Translate. Transcribe. Interpret.
         </RegularText>
-      </View>
+      </View> */}
     </ImageBackground>
   );
 };
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 14,
     textAlign: 'center',
+    color: '#fff',
   },
 });
 
-export default WelcomeAuthPage;
+export default WelcomeAuthPageGreen;
